@@ -1,8 +1,8 @@
 import { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify'
 import { ClassConstructor, plainToInstance } from 'class-transformer'
 import { validate } from 'class-validator'
-import { context } from '../core/app/app-context'
-import { resolve } from '../core/container/resolver'
+import { context } from '../core/app-context'
+import { resolve } from '../core/resolver'
 import { storage } from '../metadata/metadata-storage'
 import {
   ControllerMetadata,

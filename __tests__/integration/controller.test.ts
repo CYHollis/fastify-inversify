@@ -9,7 +9,7 @@ import {
   Valid
 } from '../../src/index'
 import { IsNotEmpty, IsString, MaxLength } from 'class-validator'
-import { context } from '../../src/core/app/app-context'
+import { context } from '../../src/core/app-context'
 
 import { describe, it, beforeAll, afterAll } from 'vitest'
 

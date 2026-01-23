@@ -1,7 +1,7 @@
 import { Container } from 'inversify'
 import { context } from './app-context'
-import { createFastify } from '../../server/fastify-instance'
-import { loadRoutes } from '../../server/routes-loader'
+import { createFastify } from '../server/fastify-instance'
+import { loadRoutes } from '../server/routes-loader'
 import { FastifyReply, FastifyRequest } from 'fastify'
 
 export class InversifyFastify {
