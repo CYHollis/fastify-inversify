@@ -1,5 +1,5 @@
 {
-  "name": "@auroravpn/fastify-di",
+  "name": "@auroravpn/fastify-inversify",
   "version": "1.0.0",
   "description": "",
   "main": "./index.js",

@@ -28,13 +28,13 @@
 
 ```bash
 # 使用 npm
-npm install @auroravpn/fastify-di inversify
+npm install @auroravpn/fastify-inversify inversify
 
 # 使用 yarn
-yarn add @auroravpn/fastify-di inversify
+yarn add @auroravpn/fastify-inversify inversify
 
 # 使用 pnpm
-pnpm add @auroravpn/fastify-di inversify
+pnpm add @auroravpn/fastify-inversify inversify
 ```
 
 ## 快速开始
