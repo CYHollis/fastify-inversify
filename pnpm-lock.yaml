@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@auroravpn/class-metadata':
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.0.0
+        version: 1.0.0
       '@fastify/cookie':
         specifier: ^11.0.2
         version: 11.0.2
@@ -72,8 +72,8 @@ importers:
 
 packages:
 
-  '@auroravpn/class-metadata@1.0.3':
-    resolution: {integrity: sha512-GWzZRdMaVGv3dTeJvDAhKirExm9a5eV1krfcXuhpOWNmG2C8g0VHnppVfns8nOlVpewyBYygNQmPR+9Ox65oAw==}
+  '@auroravpn/class-metadata@1.0.0':
+    resolution: {integrity: sha512-RGUBCW9/+AwdzUaAmeHwbg+ucmwUATIqpUgF6h5NC3a4EQZYPqeG27JRsWvDiYbSL+xjRT8cV1fs1UIVDEymig==}
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -1346,7 +1346,7 @@ packages:
 
 snapshots:
 
-  '@auroravpn/class-metadata@1.0.3': {}
+  '@auroravpn/class-metadata@1.0.0': {}
 
   '@babel/code-frame@7.27.1':
     dependencies:

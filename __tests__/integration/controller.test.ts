@@ -76,6 +76,8 @@ describe('TestController', () => {
   })
   it('sayHello', async () => {
     const fastify = context.getFastify()
+    // console.log(context.getFastify().route)
+
     const res = await fastify.inject({ method: 'GET', url: '/hello/1' })
     console.log(res.body)
   })
