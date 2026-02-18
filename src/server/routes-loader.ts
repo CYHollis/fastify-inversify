@@ -82,8 +82,6 @@ function createPlugin(
         const dto = route.getParameter(index).dto
         if (dto) {
           const key = route.getParameter(index).locations[2]
-          console.log(key)
-
           const instance = key
             ? plainToInstance(dto as ClassConstructor<any>, { [key]: param })
             : plainToInstance(dto as ClassConstructor<any>, param)

@@ -17,6 +17,10 @@ export class InversifyFastify {
     return context.getFastify().server
   }
 
+  async ready() {
+    return context.getFastify().ready()
+  }
+
   async listen(opts?: { port?: number; host?: string }, callback?: () => void) {
     const fastify = context.getFastify()
     if (opts) {
