@@ -32,21 +32,36 @@ export class InversifyFastify {
   }
 
   setRequestInterceptor(
-    callback: (request: FastifyRequest, reply: FastifyReply) => unknown
+    callback: (
+      request: FastifyRequest,
+      reply: FastifyReply
+    ) => Promise<void> | void
   ) {
-    context.getFastify().addHook('onRequest', (request, reply) => {
-      callback(request, reply)
+    context.getFastify().addHook('onRequest', async (request, reply) => {
+      await callback(request, reply)
     })
   }
 
   setResponseInterceptor(callback: (payload: unknown) => unknown) {
-    context.getFastify().addHook('onSend', async (request, reply, payload) => {
-      reply.header('Content-Type', 'application/json; charset=utf-8')
-      if (reply.statusCode === 200) {
-        return JSON.stringify(callback(payload))
-      }
-      return payload
-    })
+    context
+      .getFastify()
+      .addHook('onSend', async (request, reply, payload: string) => {
+        reply.header('Content-Type', 'application/json; charset=utf-8')
+        if (reply.statusCode === 200) {
+          let param
+          try {
+            param = JSON.parse(payload)
+          } catch {
+            param = payload
+          }
+          try {
+            return JSON.stringify(await callback(param))
+          } catch {
+            return await callback(param)
+          }
+        }
+        return payload
+      })
   }
 
   setExceptionInterceptor(

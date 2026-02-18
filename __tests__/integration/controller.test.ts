@@ -8,7 +8,7 @@ import {
   Body,
   Valid
 } from '../../src/index'
-import { IsNotEmpty, IsString, MaxLength } from 'class-validator'
+import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator'
 import { context } from '../../src/core/app-context'
 
 import { describe, it, beforeAll, afterAll } from 'vitest'
@@ -26,10 +26,15 @@ class SubmitDTO {
   password: string = ''
 }
 
+class QueryDTO {
+  @MinLength(3, { message: '用户id最小3位' })
+  uid: string = ''
+}
+
 @Controller()
 class TestController {
   @Get('/hello/:uid')
-  sayHello(@Param('uid') uid: string) {
+  sayHello(@Valid(QueryDTO) @Param('uid') uid: string) {
     return `hello ${uid}`
     // return {
     //     uid
@@ -94,46 +99,3 @@ describe('TestController', () => {
     console.log(res.body)
   })
 })
-
-// const container = new Container()
-// container.bind(TestController).toSelf().inRequestScope()
-
-// const app = new InversifyFastify(container)
-
-// app.setExceptionInterceptor((error: any) => {
-//     if (error.code === 'VALIDATION_FAILED') {
-//         return {
-//             status: 400,
-//             payload: {
-//                 msg: error.message,
-//                 status: 400,
-//                 data: null
-//             }
-//         }
-//     }
-
-//     return {
-//         status: 500,
-//         payload: {
-//             msg: '服务器内部错误',
-//             status: 500,
-//             data: null
-//         }
-//     }
-// })
-
-// app.setResponseInterceptor((payload) => {
-//     return {
-//         status: 200,
-//         msg: 'success',
-//         data: payload
-//     }
-// })
-
-// app.setRequestInterceptor((request, reply) => {
-//     // throw new Error('error')
-// })
-
-// app.listen({ port: 3000, host: 'localhost' }, async () => {
-//     console.log('app is running')
-// })

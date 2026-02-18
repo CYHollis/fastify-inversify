@@ -17,8 +17,10 @@
     }
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "rollup -c",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:runner": "tsx ./__tests__/runner/controller.test.ts"
   },
   "author": "CyHollis",
   "license": "MIT",

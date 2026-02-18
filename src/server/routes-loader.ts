@@ -81,7 +81,12 @@ function createPlugin(
       for (const [index, param = {}] of params.entries()) {
         const dto = route.getParameter(index).dto
         if (dto) {
-          const instance = plainToInstance(dto as ClassConstructor<any>, param)
+          const key = route.getParameter(index).locations[2]
+          console.log(key)
+
+          const instance = key
+            ? plainToInstance(dto as ClassConstructor<any>, { [key]: param })
+            : plainToInstance(dto as ClassConstructor<any>, param)
           const errors = await validate(instance)
           if (errors.length > 0) {
             const messages = errors[0].constraints as {
